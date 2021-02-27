@@ -1,0 +1,30 @@
+{
+  "name": "ioc",
+  "version": "1.0.0",
+  "description": "Sample to show the use of IoC pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "example": "ts-node ./index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafa8626/ioc.git"
+  },
+  "keywords": [
+    "ioc",
+    "design",
+    "patterns"
+  ],
+  "author": "Rafael Miranda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rafa8626/ioc/issues"
+  },
+  "homepage": "https://github.com/rafa8626/ioc#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.2"
+  }
+}
