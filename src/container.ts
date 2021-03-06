@@ -1,12 +1,19 @@
 import "reflect-metadata";
 import { Type } from "./interfaces/type";
+export class Container {
+    private _instances = new Map();
 
-// Using a constant instead of a class, allows to use singleton pattern
-// meaning every time we use import, we will use the same element and not a new one
-export const Container = new class {
-    use<T>(target: Type<any>): T {
-        const classParams = Reflect.getMetadata('design:paramtypes', target) || [];
-        const injections = classParams.map(param => Container.use<any>(param));
-        return new target(...injections);
+    bind<T>(target: Type<any>): T {
+        const key = target.name;
+        
+        if (!this._instances.get(key)) {
+            console.log(`Generating new instance for ${key}...`);
+            const classParams = Reflect.getMetadata('design:paramtypes', target) || [];
+            const injections = classParams.map(param => this.bind<any>(param));
+            this._instances.set(key, new target(...injections));
+        }
+        
+        console.log(`=== Returning ${key} instance ===`);
+        return this._instances.get(key);
     }
-};
+}

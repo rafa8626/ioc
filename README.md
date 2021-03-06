@@ -1,11 +1,16 @@
-# ioc
+# IoC
+
 Sample IoC implementation made in Typescript
 
 ## The Basics
 
 This example uses the IoC and Singleton pattern implementation
 
-## To be implemented
+To test this implementation, run:
 
-- Resolve circular dependencies
-- Better error handling
+```shell
+npm i
+npm run sample
+```
+
+This sample uses a singleton approach, saving references for each binded class.

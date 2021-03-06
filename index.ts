@@ -1,6 +1,5 @@
-import { Injector } from "./src/decorator";
+import { Injector } from "./src/injector";
 import { Container } from './src/container';
-
 
 @Injector()
 class Database {
@@ -34,5 +33,9 @@ class UserController {
   }
 }
 
-const userInstance = Container.use<UserController>(UserController);
+const container = new Container();
+const userInstance = container.bind<UserController>(UserController);
 userInstance.create({ name: 'Rafa', email: 'example@test.test'});
+
+const userInstance2 = container.bind<UserController>(UserController);
+userInstance2.create({ name: 'Anonymous', email: 'example2@test.test'});
